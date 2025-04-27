@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3DCP Project Estimator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <img src="https://i.imgur.com/your-logo-link.png" alt="Critchfield 3DCP Consulting" class="logo">
+        <h1>3D Concrete Printing Project Estimator</h1>
+    </header>
+
+    <main>
+        <section class="inputs">
+            <h2>Project Inputs</h2>
+            <label>Bead Width (inches): <input type="number" id="beadWidth"></label>
+            <label>Bead Height (inches): <input type="number" id="beadHeight"></label>
+            <label>Total Linear Feet: <input type="number" id="linearFeet"></label>
+            <label>Print Speed (in/sec): <input type="number" id="printSpeed"></label>
+            <label>Uptime Efficiency (%): <input type="number" id="uptime" value="85"></label>
+            <label>Material Cost per yd³ ($): <input type="number" id="materialCost"></label>
+            <button onclick="calculate()">Calculate Estimate</button>
+            <button onclick="toggleAdvanced()">Advanced Options</button>
+
+            <div id="advancedOptions" style="display:none;">
+                <h3>Advanced Options</h3>
+                <label>Operator Cost/hr ($): <input type="number" id="operatorCost"></label>
+                <label>Machine Cost/hr ($): <input type="number" id="machineCost"></label>
+                <label>Contingency (%): <input type="number" id="contingency" value="5"></label>
+            </div>
+        </section>
+
+        <!-- Mix Design Section -->
+        <section class="mix-design">
+            <h2>Mix Design Inputs</h2>
+            <label for="cementAmount">Cement Amount (kg): 
+                <input type="number" id="cementAmount" placeholder="Enter amount in kg">
+            </label>
+            <label for="cementType">Cement Type: 
+                <select id="cementType">
+                    <option value="portland">Portland</option>
+                    <option value="geopolymer">Geopolymer</option>
+                </select>
+            </label>
+            <label for="aggregateAmount">Aggregate Amount (kg): 
+                <input type="number" id="aggregateAmount" placeholder="Enter amount in kg">
+            </label>
+            <label for="additiveAmount">Additive Amount (kg): 
+                <input type="number" id="additiveAmount" placeholder="Enter amount in kg">
+            </label>
+            <label for="flyAshAmount">Fly Ash Amount (kg): 
+                <input type="number" id="flyAshAmount" placeholder="Enter amount in kg">
+            </label>
+            <label for="waterAmount">Water Amount (kg or L): 
+                <input type="number" id="waterAmount" placeholder="Enter amount in kg or liters">
+            </label>
+        </section>
+
+        <section class="outputs">
+            <h2>Estimate Results</h2>
+            <div id="results"></div>
+            <button onclick="downloadPDF()">Download PDF</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Critchfield 3DCP Consulting</p>
+    </footer>
+
+    <script src="js/estimator.js"></script>
+</body>
+</html>
